@@ -159,16 +159,27 @@ function setListeners() {
 
 }
 
+function start() {
+    document.addEventListener('DOMContentLoaded', () => {
+        refBotonBorrar = document.querySelector('.carrito .btn-borrar')
+        refBotonPedir = document.querySelector('.carrito .btn-pedir')
 
-function start(){
-
-    refBotonBorrar = document.querySelector('.carrito .btn-borrar')
-    refBotonPedir = document.querySelector('.carrito .btn-pedir')
-
-    carrito = leer()
-    console.log('Valor de carrito al iniciar:', carrito);
-    render()
+        carrito = leer()
+        console.log('Valor de carrito al iniciar:', carrito);
+        render()
+    });
 }
+
+
+// function start(){
+
+//     refBotonBorrar = document.querySelector('.carrito .btn-borrar')
+//     refBotonPedir = document.querySelector('.carrito .btn-pedir')
+
+//     carrito = leer()
+//     console.log('Valor de carrito al iniciar:', carrito);
+//     render()
+// }
 
 export default{
     start, 
