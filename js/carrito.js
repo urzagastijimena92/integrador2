@@ -85,7 +85,7 @@ function render() {
                         <th>subtotal</th>
                     </tr>`
 
-    if(carrito.length) {
+    if(carrito || carrito.length) {
         for(var i=0; i<carrito.length; i++) {
             filasTabla += 
                 `<tr> 
@@ -159,27 +159,18 @@ function setListeners() {
 
 }
 
-function start() {
-    document.addEventListener('DOMContentLoaded', () => {
-        refBotonBorrar = document.querySelector('.carrito .btn-borrar')
-        refBotonPedir = document.querySelector('.carrito .btn-pedir')
 
-        carrito = leer()
-        console.log('Valor de carrito al iniciar:', carrito);
-        render()
-    });
+
+
+function start(){
+
+    refBotonBorrar = document.querySelector('.carrito .btn-borrar')
+    refBotonPedir = document.querySelector('.carrito .btn-pedir')
+
+    carrito = leer()
+    console.log('Valor de carrito al iniciar:', carrito);
+    render()
 }
-
-
-// function start(){
-
-//     refBotonBorrar = document.querySelector('.carrito .btn-borrar')
-//     refBotonPedir = document.querySelector('.carrito .btn-pedir')
-
-//     carrito = leer()
-//     console.log('Valor de carrito al iniciar:', carrito);
-//     render()
-// }
 
 export default{
     start, 
