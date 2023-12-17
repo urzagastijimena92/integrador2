@@ -85,7 +85,7 @@ function render() {
                         <th>subtotal</th>
                     </tr>`
 
-    if(carrito || carrito.length) {
+    if(carrito && carrito.length) {
         for(var i=0; i<carrito.length; i++) {
             filasTabla += 
                 `<tr> 
