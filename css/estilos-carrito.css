@@ -104,7 +104,7 @@
     .carrito table {
         display: block;
         width: 98vw;
-        min-width: 260px;
+        min-width: 230px;
         font-size: 10px;
         height: auto;
         overflow-x:scroll;
