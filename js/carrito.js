@@ -1,3 +1,4 @@
+import { mostrarMensaje } from './inicio.js';
 import servicioCarrito from './servicioCarrito.js';
 
 let refBotonBorrar
@@ -5,8 +6,6 @@ let refBotonPedir
 let subtotal
 
 var carrito = []
-
-
 
 function guardar() {
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -69,8 +68,11 @@ async function pedir() {
 
     carrito = []
     guardar()
+    mostrarMensaje('¡Su pedido se realizó con éxito!')
     render()
 }
+
+// -----------------------------RENDER DE CARRITO EN TABLA--------------------------
 
 function render() {
 
@@ -84,6 +86,7 @@ function render() {
                         <th>acciones</th>
                         <th>subtotal</th>
                     </tr>`
+                  
 
     if(carrito && carrito.length) {
         for(var i=0; i<carrito.length; i++) {
@@ -94,7 +97,7 @@ function render() {
                     <td> $${carrito[i].precio}</td>
                     <td><img width="100%" src=" ${carrito[i].foto}" alt="foto de ${carrito[i].nombre}"></td>
                     <td>${carrito[i].vacantes}</td>
-                    <td>
+                    <td style="min-width:115px;">
                         <button id="btnDecrementar-${carrito[i].id}">-</button>
                         &nbsp${subtotal = carrito[i].vacantes >= carrito[i].cantidad ? carrito[i].cantidad : carrito[i].vacantes}&nbsp
                         <button id="btnIncrementar-${carrito[i].id}">+</button>
@@ -105,6 +108,7 @@ function render() {
                     <td id="total"> $${subtotal * carrito[i].precio}</td>
                 </tr>`
         }
+
         refBotonBorrar.style.display = 'block'
         refBotonPedir.style.display = 'block'
     }
@@ -121,6 +125,7 @@ function render() {
 
 }
 
+// ------------------------------LISTENERS DE BOTONES EN CARRITO------------------------------
     
 function setListeners() {
     const botonesEliminar = document.querySelectorAll('.carrito table button[id*="btnBorrar-"]')
@@ -160,15 +165,12 @@ function setListeners() {
 }
 
 
-
-
 function start(){
 
     refBotonBorrar = document.querySelector('.carrito .btn-borrar')
     refBotonPedir = document.querySelector('.carrito .btn-pedir')
 
     carrito = leer()
-    console.log('Valor de carrito al iniciar:', carrito);
     render()
 }
 

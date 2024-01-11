@@ -2,6 +2,20 @@ import carrito from './carrito.js';
 import productosMem from './productosMem.js';
 import servicioProductos from './servicioProductos.js';
 
+// ---------------------------CARTELERA DE ÉXITO ----------------------------
+export function mostrarMensaje(mensaje) {
+
+    var mensajeElemento = document.getElementById('mensajeExito');
+    mensajeElemento.innerHTML = mensaje;
+    mensajeElemento.style.display = 'block';
+
+    setTimeout(function () {
+      mensajeElemento.style.display = 'none';
+    }, 2000);
+  }
+
+// ------------------------------CARGA DE CARDS-------------------------------
+
 function render() {
     
     var cards = ''
@@ -42,7 +56,6 @@ function render() {
 // -------------------------------------------------------------------------
 
 
-
 function setListeners() {
     const botones = document.querySelectorAll('.cards .btn-comprar')
     botones.forEach(boton => {
@@ -52,6 +65,9 @@ function setListeners() {
             let producto = productosMem.get(id)
 
             carrito.agregar(producto)
+
+            mostrarMensaje('¡Curso agregado al carrito!');
+        
         })
     })    
 }

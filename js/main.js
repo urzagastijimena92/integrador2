@@ -6,9 +6,9 @@ import inicio from './inicio.js';
 import nosotros from './nosotros.js';
 import { volverArriba } from './volver-arriba.js';
 
-/* ---------------------------------------------------------- */
-/*                          Ejecución                         */
-/* ---------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/*                 CARGA DE MAIN/PLANTILLAS                        */
+/* --------------------------------------------------------------- */
 window.onload = startMain
 
 function cargarPlantilla(id){

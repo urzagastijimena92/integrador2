@@ -67,6 +67,7 @@
 }
 
 .cards-container section p {
+    overflow-wrap: anywhere;
     padding: 0 15px;
     font-size: 15px;
     color:#00262bc5;

@@ -28,15 +28,18 @@
                 Los datos marcados con asterisco (*) son obligatorios. Toda su información será tratada de manera confidencial.
             </p>
             <br>
-            <form action="https://postman-echo.com/post" method="post" target="_blank">
+            <form class="contacto-form" action="https://postman-echo.com/post" method="post" target="_blank">
                 <div class="input-group">
                     <label for="nombre">Nombre*:</label>
-                    <input type="text" name="nombre" id="nombre" autocomplete="off" required>
+                    <input type="text" name="nombre" id="nombre" autocomplete="off">
+                    <div class="error-detail" id="errorNombreContacto">Campo no válido</div>
+
                 </div>
 
                 <div class="input-group">
                     <label for="email">e-mail*:</label>
-                    <input type="email" name="email" id="email" autocomplete="off" required>
+                    <input type="email" name="email" id="email" autocomplete="off" placeholder="ejemplo@email.com">
+                    <div class="error-detail" id="errorEmail">Campo no válido</div>
                 </div>
 
                 <div class="input-group">
@@ -47,11 +50,13 @@
                 <div class="input-group">
                     <label for="mensaje">Mensaje*:</label>
                     <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Escribe tu consulta..."></textarea>
+                    <div class="error-detail" id="errorMensaje">Campo no válido</div>
+
                 </div>
 
                 <div class="contenedor-btn">
-                    <input class="boton" type="reset" value="Restablecer">
-                    <input class="boton" type="submit" value="Enviar">
+                    <input class="boton" type="reset" value="Restablecer" id="restablecer">
+                    <input class="boton" type="submit" value="Enviar" id="enviar">
                     
                 </div>
             </form>
