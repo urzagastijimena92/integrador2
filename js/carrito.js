@@ -86,7 +86,7 @@ function render() {
                         <th>acciones</th>
                         <th>subtotal</th>
                     </tr>`
-                  
+
 
     if(carrito && carrito.length) {
         for(var i=0; i<carrito.length; i++) {
@@ -119,8 +119,19 @@ function render() {
     }
 
 
-    document.querySelector('table').innerHTML = filasTabla
+    document.querySelector('table').innerHTML = filasTabla + 
    
+        `<tr> 
+            <th style="border: none;"></th>
+            <th style="border: none;"></th>
+            <th style="border: none;"></th>
+            <th style="border: none;"></th>
+            <th style="border: none;"></th>
+            <th style="border: none;"></th>
+            <th style="color:#FBD63D; border: none;">Total:</th>
+            <th style="border: none;">$ ${carrito.reduce((acc, p) => acc + p.precio*p.cantidad, 0).toFixed(2)}</th>
+        </tr>`
+        
     setListeners()
 
 }
