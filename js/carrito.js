@@ -106,7 +106,21 @@ function render() {
                         <button id="btnBorrar-${carrito[i].id}">Borrar</button>
                     </td>
                     <td id="total"> $${subtotal * carrito[i].precio}</td>
-                </tr>`
+                </tr>`  
+        }
+
+        if(true){
+            filasTabla +=
+            `<tr> 
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th style="border: none;"></th>
+                <th style="color:#FBD63D; border: none;">Total:</th>
+                <th style="border: none; min-width: 100px;">$ ${carrito.reduce((acc, p) => acc + p.precio*p.cantidad, 0).toFixed(2)}</th>
+            </tr>`
         }
 
         refBotonBorrar.style.display = 'block'
@@ -118,20 +132,8 @@ function render() {
         refBotonPedir.style.display = 'none'
     }
 
-
-    document.querySelector('table').innerHTML = filasTabla + 
+    document.querySelector('table').innerHTML = filasTabla
    
-        `<tr> 
-            <th style="border: none;"></th>
-            <th style="border: none;"></th>
-            <th style="border: none;"></th>
-            <th style="border: none;"></th>
-            <th style="border: none;"></th>
-            <th style="border: none;"></th>
-            <th style="color:#FBD63D; border: none;">Total:</th>
-            <th style="border: none;">$ ${carrito.reduce((acc, p) => acc + p.precio*p.cantidad, 0).toFixed(2)}</th>
-        </tr>`
-        
     setListeners()
 
 }
