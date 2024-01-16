@@ -11,6 +11,7 @@ let refNombre
 let refPrecio 
 let refVacantes
 let refDuracion
+let refCategoria
 let refDetalles
 let refFoto
 let refCuotas
@@ -34,6 +35,7 @@ async function agregarActualizar(e) {
     const precio = refPrecio.value
     const vacantes = refVacantes.value
     const duracion = refDuracion.value
+    const categoria = refCategoria.value
     const detalles = refDetalles.value
     const foto = refFoto.value
     const cuotas = refCuotas.checked
@@ -44,6 +46,7 @@ async function agregarActualizar(e) {
         precio : precio,
         vacantes : vacantes,
         duracion : duracion,
+        categoria : categoria,
         detalles : detalles,
         foto : foto,
         cuotas : cuotas
@@ -74,6 +77,7 @@ function borrarForm() {
     refPrecio.value = ''
     refVacantes.value = ''
     refDuracion.value = ''
+    refCategoria.value = ''
     refDetalles.value = ''
     refFoto.value = ''
     refCuotas.checked = false
@@ -158,8 +162,6 @@ function setListeners() {
         boton.addEventListener('click', async e => {
             const id = e.target.id.split('-')[1]
             
-
-            if(confirm('¿Está seguro de borrar este curso?')) {
                 const productoEliminado = await servicioProductos.eliminar(id)
                 productosMem.eliminar(productoEliminado.id)
      
@@ -170,7 +172,7 @@ function setListeners() {
                 }
                
                 render()
-            }
+                mostrarMensaje('Curso eliminado correctamente')
         })
     })
 
@@ -366,6 +368,7 @@ async function start() {
     refPrecio = document.getElementById('precio')
     refVacantes = document.getElementById('vacantes')
     refDuracion = document.getElementById('duracion')
+    refCategoria = document.getElementById('categoria')
     refDetalles = document.getElementById('detalles')
     refFoto = document.getElementById('foto')
     refCuotas = document.getElementById('cuotas')

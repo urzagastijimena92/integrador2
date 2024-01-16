@@ -56,11 +56,11 @@ function decrementarCantID(id) {
 }
 
 function borrar() {
-    if(confirm('¿Está seguro que quiere borrar todo el carrito?')){
         carrito = []
         guardar()
         render()
-    }
+        mostrarMensaje('¡Carrito eliminado correctamente!')
+
 }
 
 async function pedir() {
@@ -146,10 +146,9 @@ function setListeners() {
         boton.addEventListener('click', async e => {
             const id = e.target.id.split('-')[1]
 
-            if(confirm('¿Está seguro de borrar este curso del carrito?')) {
-                borrarID(id)
-                render()
-            }
+            borrarID(id)
+            render()
+            mostrarMensaje('¡Curso eliminado del carrito!')
         })
     })
 
